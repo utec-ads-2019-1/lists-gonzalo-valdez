@@ -3,7 +3,8 @@
 
 #include "list.h"
 #include "iterators/forward_iterator.h"
-#include <math.h>
+#include <vector>
+#include <algorithm>
 
 template <typename T>
 class ForwardList : public List<T> {
@@ -104,32 +105,29 @@ class ForwardList : public List<T> {
         }
 
 
-        Node<T> getNode(int index) {
-            if (index>this->size()) {
-                throw out_of_range("Index out of range");
-            }
-            Node<T>* n = this->head;
-            for(int i=0;i<index;i++){
-                n=n->next;
-            }
-            return n;
-        }
-
         void sort() {
+            vector<T> temp;
+            temp.resize(this->size());
             for(int i = 0;i<this->size();i++){
-                for(int j = 0;j<this->size();j++){
-                    if((*this)[i] > (*this)[j]){
-
-                    }
-                }
+                temp.push_back((*this)[i]);
+            }
+            this->clear();
+            std::sort(temp.begin(),temp.end());
+            for(int i = 0;i<this->size();i++){
+                this->push_back(temp.at(i));
             }
         }
     
         void reverse() {
-            int count = 0;
-            for(int i = 0; i<floor(size()/2); i++){
-                (*this)[i].data = (*this)[i-count].data;
-                count++;
+            vector<T> temp;
+            temp.resize(this->size());
+            for(int i = 0;i<this->size();i++){
+                temp.push_back((*this)[i]);
+            }
+            this->clear();
+            std::reverse(temp.begin(),temp.end());
+            for(int i = 0;i<this->size();i++){
+                this->push_back(temp.at(i));
             }
         }
 
@@ -138,15 +136,17 @@ class ForwardList : public List<T> {
         }
 
         ForwardIterator<T> begin() {
-            // TODO
+            return ForwardIterator<T>(this->head);
         }
 
 	    ForwardIterator<T> end() {
-            // TODO
+            return ForwardIterator<T>(this->tail);
         }
 
         void merge(ForwardList<T> list) {
-            // TODO
+            for(auto k:list){
+                this->push_back(k);
+            }
         }
 };
 
