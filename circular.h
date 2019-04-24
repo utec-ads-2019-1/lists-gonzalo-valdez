@@ -158,7 +158,11 @@ class CircularLinkedList : public List<T> {
 
         void merge(CircularLinkedList<T> list) {
             for(auto k:list){
+<<<<<<< HEAD
                 this->push_back(k->data);
+=======
+                this->push_back(k);
+>>>>>>> refs/remotes/origin/master
             }
         }
 };

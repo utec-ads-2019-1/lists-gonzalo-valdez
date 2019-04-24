@@ -10,8 +10,12 @@ class BidirectionalIterator : public Iterator<T> {
         BidirectionalIterator(Node<T> *node) : Iterator<T>(node) {};
 
         BidirectionalIterator<T> operator=(BidirectionalIterator<T> other) {
+<<<<<<< HEAD
             this->current=other.current;
             return (*this);
+=======
+            return other;
+>>>>>>> refs/remotes/origin/master
         }
 
         bool operator!=(BidirectionalIterator<T> other) {
