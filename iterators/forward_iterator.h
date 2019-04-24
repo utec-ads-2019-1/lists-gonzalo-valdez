@@ -10,12 +10,8 @@ class ForwardIterator : public Iterator<T> {
         ForwardIterator(Node<T> *node) : Iterator<T>(node) {};
 
         ForwardIterator<T> operator=(ForwardIterator<T> other) {
-<<<<<<< HEAD
             this->current=other.current;
             return (*this);
-=======
-            return other;
->>>>>>> refs/remotes/origin/master
         }
 
         bool operator!=(ForwardIterator<T> other) {

@@ -142,11 +142,7 @@ class LinkedList : public List<T> {
 
         void merge(LinkedList<T> list) {
             for(auto k:list){
-<<<<<<< HEAD
-                this->push_back(k->data);
-=======
                 this->push_back(k);
->>>>>>> refs/remotes/origin/master
             }
         }
 };
