@@ -78,7 +78,7 @@ void Tester::testList(Collection collection) {
     ASSERT(list->size() == 0, "The " + list->name() + " size or clear is not working");
     ASSERT(list->empty() == true, "The " + list->name() + " empty is not working");
 
-    testSpecifics(collection, list);
+    //testSpecifics(collection, list);
 }
 
 template <typename T>

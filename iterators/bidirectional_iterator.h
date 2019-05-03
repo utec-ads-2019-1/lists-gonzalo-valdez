@@ -22,14 +22,17 @@ class BidirectionalIterator : public Iterator<T> {
         }
 
         BidirectionalIterator<T> operator++() {
+            // Estás creando nuevos iteradores cada vez
             return BidirectionalIterator<T>(this->current->next);
         }
 
         BidirectionalIterator<T> operator--() {
+            // Estás creando nuevos iteradores cada vez
             return BidirectionalIterator<T>(this->current->prev);
         }
 
         T operator*() {
+            // Si es una lista vacía?
             return this->current->data;
         }
 };

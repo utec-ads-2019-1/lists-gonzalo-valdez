@@ -99,6 +99,7 @@ class CircularLinkedList : public List<T> {
         }
 
         int size() {
+            // esto va a dar error con una lista vacía, probaste los tester?
             Node<T>* n = this->head;
             int count = 0;
             while(n->next!=this->head){
